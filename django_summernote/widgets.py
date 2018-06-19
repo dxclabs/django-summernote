@@ -30,10 +30,14 @@ class SummernoteWidgetBase(forms.Textarea):
         lang = _get_proper_language()
 
         summernote_settings = summernote_config.get('summernote', {}).copy()
+        language_url = ''
+        if staticfiles_storage.exists('summernote/lang/summernote-' + lang + '.min.js'):
+            language_url = staticfiles_storage.url('summernote/lang/summernote-' + lang + '.min.js')
+
         summernote_settings.update({
             'lang': lang,
             'url': {
-                'language': staticfiles_storage.url('summernote/lang/summernote-' + lang + '.min.js'),
+                'language': language_url,
                 'upload_attachment': reverse('django_summernote-upload_attachment'),
             },
         })
