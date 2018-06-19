@@ -2,6 +2,7 @@ import json
 from django import forms
 from django.conf import settings as django_settings
 from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.forms.utils import flatatt
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
@@ -32,7 +33,7 @@ class SummernoteWidgetBase(forms.Textarea):
         summernote_settings.update({
             'lang': lang,
             'url': {
-                'language': static('summernote/lang/summernote-' + lang + '.min.js'),
+                'language': staticfiles_storage.url('summernote/lang/summernote-' + lang + '.min.js'),
                 'upload_attachment': reverse('django_summernote-upload_attachment'),
             },
         })
