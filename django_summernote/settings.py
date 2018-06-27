@@ -123,6 +123,7 @@ SETTINGS_DEFAULT = {
     'default_css': (
         'summernote/summernote.css',
         'summernote/django_summernote.css',
+        'summernote/summernote-lite.css',
     ),
     'default_js': (
         'summernote/jquery.ui.widget.js',
