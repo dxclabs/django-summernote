@@ -14,6 +14,12 @@ function initSummernote_{{ id }}() {
         var settings = {{ settings|safe }};
         var $sn = $('#{{ id_src }}');
 {% endif %}
+
+        // to add extra settings or override
+        if (typeof(extra_summernote_settings) === 'undefined') {
+            extra_summernote_settings = {}
+        }
+
         $sn.html(origin.value);
         var $nEditor, $nCodable, $nImageInput;
         $(origin).hide();
@@ -102,7 +108,7 @@ function initSummernote_{{ id }}() {
                     }
                     {% endif %}
                 }
-            }));
+            }, extra_summernote_settings));
         };
 
         // include summernote language pack, synchronously
