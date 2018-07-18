@@ -107,6 +107,16 @@ function initSummernote_{{ id }}() {
                             });
                     }
                     {% endif %}
+                },
+                onCreateLink: function (linkUrl) {
+                    // if link is template tag like {{ tag }} then don't append http://
+                    if (linkUrl.indexOf('{{') !== 0) {
+                        // url = 'http://' + url;
+                        // if url doesn't match an URL schema, set http:// as default
+                        linkUrl = /^[A-Za-z][A-Za-z0-9+-.]*\:[\/\/]?/.test(linkUrl)
+                            ? linkUrl : 'http://' + linkUrl;
+                    }
+                    return linkUrl;
                 }
             }, extra_summernote_settings));
         };
