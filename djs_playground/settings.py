@@ -121,16 +121,30 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'djs_playground/static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'djs_playground/media/')
 
+SUMMERNOTE_THEME = 'bs4'
 SUMMERNOTE_CONFIG = {
+    'iframe': False,
     'summernote': {
-        'width': '100%',
-        'height': '200px',
+        'width': '800px',
+        'height': '400px',
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'clear', ]],
+            ['color', ['forecolor', 'backcolor', ]],
+            ['misc', ['picture', 'fullscreen', 'codeview', 'print', 'help', ]],
+        ],
     },
+    'js': (
+        '/static/summernote-ext-print.js',
+    ),
+    'js_for_inplace': (
+        '/static/summernote-ext-print.js',
+    ),
     'css': (
-        '//cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/theme/base16-dark.min.css',
+        '//cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/theme/base16-dark.min.css',
     ),
     'css_for_inplace': (
-        '//cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/theme/base16-dark.min.css',
+        '//cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/theme/base16-dark.min.css',
     ),
     'codemirror': {
         'theme': 'base16-dark',
