@@ -25,8 +25,6 @@ class SummernoteWidgetBase(forms.Textarea):
         if staticfiles_storage.exists('summernote/lang/summernote-' + lang + '.min.js'):
             language_url = staticfiles_storage.url('summernote/lang/summernote-' + lang + '.min.js')
 
-        print('ddddd')
-        print(staticfiles_storage.exists('summernote/lang/summernote-' + lang + '.min.js'))
         summernote_settings.update({
             'lang': lang,
             'url': {
